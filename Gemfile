@@ -33,9 +33,10 @@ gem 'hirb', '~> 0.7.2'
 gem 'pry'
 # Show errors in a better way in browser
 gem 'better_errors'
+gem "binding_of_caller"
 
 # Interact with Parse's REST API
-gem 'parse_resource', '~> 1.8.0'
+gem 'parse_resource', github: 'tjalil/parse_resource'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
