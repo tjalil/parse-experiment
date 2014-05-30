@@ -34,6 +34,9 @@ gem 'pry'
 # Show errors in a better way in browser
 gem 'better_errors'
 
+# Interact with Parse's REST API
+gem 'parse_resource', '~> 1.8.0'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
