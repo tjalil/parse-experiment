@@ -38,8 +38,11 @@ gem "binding_of_caller"
 # Interact with Parse's REST API
 gem 'parse_resource', github: 'tjalil/parse_resource'
 
+# Sorcery for User Authenitcation
+# gem 'sorcery', '~> 0.8.5'
+
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
 # gem 'unicorn'
