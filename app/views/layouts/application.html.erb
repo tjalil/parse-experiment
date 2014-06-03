@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>ParseExperiment</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>ParseExperiment</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
-<%= yield %>
+    <% if current_user %>
+      Logged in as <%= current_user.first_name %> <%= current_user.last_name %> | <%= link_to "Log Out", session_path("current"), method: :delete %>
+    <% else %>
+      <%= link_to "Sign Up", new_user_path %> | <%= link_to "Log In", new_session_path(@user) %>
+    <% end %>
+
+    <% if flash[:notice] %>
+      <div id = "notice"><%= flash[:notice] %></div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div id = "alert"><%= flash[:alert] %></div>
+    <% end %>
+
+    <%= yield %>
 
 </body>
 </html>
