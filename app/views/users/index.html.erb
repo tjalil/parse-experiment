@@ -2,4 +2,5 @@
 
 <% @users.each do |user| %>
   <p><%= user.username %></p>
+  <p><%= image_tag user.avatar, :style => "max-width: 70px" %></p>
 <% end %>
