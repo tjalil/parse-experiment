@@ -44,6 +44,9 @@ gem 'parse_resource', github: 'tjalil/parse_resource'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# gem 'carrierwave', '~> 0.10.0'
+# gem 'rmagick', :require => 'RMagick'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
