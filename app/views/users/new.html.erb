@@ -11,6 +11,7 @@
   <p><%= user.text_field :username, placeholder: "Username" %></p>
   <p><%= user.text_field :email, placeholder: "Email" %></p>
   <p><%= user.password_field :password, placeholder: "Password" %></p>
+  <p><%= user.file_field :avatar, placeholder: 'Avatar', label: "Avatar", :as => :file %></p>
   <p><%= user.submit :submit %></p>
 
 <% end %>
