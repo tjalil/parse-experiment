@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 
   def index
-    @users = User.all
+    # increase the limit as the user base of the app grows
+    @users = User.limit(10000).all
   end
 
   def show
@@ -14,6 +15,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
+    if params[:user][:avatar]
+      result = User.upload(params[:user][:avatar].tempfile, params[:user][:avatar].original_filename, content_type: params[:user][:avatar].content_type)
+      @user.avatar = {"__type"=>"File", "name"=>result['name'], "url"=>result['url']}
+    end
+
     if @user.save
       session[:user_id] = @user.id
       redirect_to users_path
@@ -25,7 +31,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :username, :first_name, :last_name, :role, :organization_name, :type_of_artist)
+    params.require(:user).permit(:email, :password, :username, :first_name, :last_name, :role, :organization_name, :type_of_artist, :avatar)
   end
 
 end
