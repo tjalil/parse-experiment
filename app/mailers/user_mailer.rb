@@ -6,5 +6,4 @@ class UserMailer < ActionMailer::Base
     @url = 'http://localhost:3000/sessions/new'
     mail(to: @user.email, subject: 'Testing Mailer for parse-experiment')
   end
-  
 end

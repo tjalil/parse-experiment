@@ -21,8 +21,9 @@ class UsersController < ApplicationController
     end
 
     if @user.save
-      session[:user_id] = @user.id
-      redirect_to users_path
+      UserMailer.welcome_email(@user).deliver
+      # session[:user_id] = @user.id
+      redirect_to users_path, notice: "User was successfully created! We'll need you to verify through email before you can log in."
     else
       render :new
     end
