@@ -1,0 +1,13 @@
+<%= form_for @team do |team| %>
+
+  <% if @team.errors.any? %>
+    <% for message in @team.errors.full_messages %>
+      <%= message %>
+    <% end %>
+  <% end %>
+
+  <p><%= team.text_field :team_name, placeholder: "Team Name" %></p>
+  <p><%= team.file_field :team_photo, placeholder: 'Team Photo', label: "Team Photo", :as => :file %></p>
+  <p><%= team.submit :submit %></p>
+
+<% end %>
