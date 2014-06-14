@@ -18,10 +18,10 @@ ActiveRecord::Schema.define(version: 20140613225716) do
 
   create_table "teams", force: true do |t|
     t.string   "team_name"
-    t.string   "team_photo"
     t.string   "owner_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "team_photo"
   end
 
   create_table "users", force: true do |t|
