@@ -21,8 +21,9 @@ class UsersController < ApplicationController
     end
 
     if @user.save
+      session[:user_id] = @user.id
       UserMailer.welcome_email(@user).deliver
-      redirect_to users_path, notice: "User was successfully created! We'll need you to verify through email before you can log in."
+      redirect_to new_team_path, notice: "User was successfully created! We'll need you to verify through email before you can log in."
     else
       render :new
     end
@@ -31,7 +32,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :username, :first_name, :last_name, :role, :organization_name, :type_of_artist, :avatar)
+    params.require(:user).permit(:email, :password, :username, :first_name, :last_name, :avatar)
   end
 
 end
