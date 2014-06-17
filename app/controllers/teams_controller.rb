@@ -5,7 +5,7 @@ class TeamsController < ApplicationController
   end
 
   def create
-    @team = Team.create(team_params)
+    @team = Team.new(team_params)
 
     if params[:team][:team_photo]
       result = Team.upload(params[:team][:team_photo].tempfile, params[:team][:team_photo].original_filename, content_type: params[:team][:team_photo].content_type)
@@ -14,6 +14,7 @@ class TeamsController < ApplicationController
 
     @team.owner_id = current_user.id
     @team.owner = current_user
+
     if @team.save
       redirect_to user_path(current_user)
     else
@@ -24,7 +25,7 @@ class TeamsController < ApplicationController
   private
 
   def team_params
-    params.require(:team).permit(:team_name, :team_photo)
+    params.require(:team).permit(:team_name, :team_photo, :owner)
   end
 
 end
