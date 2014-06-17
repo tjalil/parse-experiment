@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'users#index'
 
-  resources :users, only: [:index, :show, :new, :create]
+  resources :users, except: [:destroy]
 
   resources :teams, only: [:new, :create]
 
