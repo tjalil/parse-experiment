@@ -1,0 +1,16 @@
+<%= form_for @user do |user| %>
+
+  <% if @user.errors.any? %>
+    <% for message in @user.errors.full_messages %>
+      <%= message %>
+    <% end %>
+  <% end %>
+
+  <p><%= user.text_field :first_name, placeholder: "First Name" %></p>
+  <p><%= user.text_field :last_name, placeholder: "Last Name" %></p>
+  <p><%= user.text_field :username, placeholder: "Username" %></p>
+  <p><%= user.text_field :email, placeholder: "Email" %></p>
+  <p><%= user.password_field :password, placeholder: "Password" %></p>
+  <p><%= user.submit :submit %></p>
+
+<% end %>
